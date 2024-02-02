@@ -53,14 +53,14 @@
   }
 
   .botoes {
-    background: #fffadd;
+    background: #FFFADD;
   }
 
   .operacao {
-    background: #ffcc70;
+    background: #FFCC70;
   }
 
   .destaque {
-    background: #8ecddd;
+    background: #8ECDDD;
   }
 </style>

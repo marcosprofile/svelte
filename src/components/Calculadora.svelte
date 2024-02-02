@@ -13,6 +13,7 @@
   const limpar = () => calc = calc.limpar()
 
 </script>
+
 <div class="calculadora">
   <Tela valor={calc.valor} />
 
