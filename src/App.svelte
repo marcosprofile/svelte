@@ -9,6 +9,7 @@
 <style>
 	:global(body) {
 		background: var(--bg-900);
+		overflow: hidden;
 	}
 		
 	:root {
