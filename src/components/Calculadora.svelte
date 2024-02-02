@@ -60,4 +60,10 @@
 
     box-shadow: 0 0 12px #00000085;
   }
+
+  @media (max-width: 600px) {
+		.calculadora {
+      transform: scale(.75)
+		}
+	}
 </style>
