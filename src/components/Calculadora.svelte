@@ -1,56 +1,47 @@
 <script lang="ts">
+  import CalculadoraModel from "../model/CalculadoraModel";
   import Botao from "./Botao.svelte";
   import Linha from "./Linha.svelte";
   import Tela from "./Tela.svelte";
 
-  class Model {
-    valor: string
-    constructor(valor: string = "0") {
-      this.valor = valor;
-    }
+  let calc = new CalculadoraModel()
 
-    inc() {
-      return new Model(`${parseInt(this.valor) + 1}`)
-    }
-  }
-
-  let obj = new Model();
-
-  function numeroDigitado(numero: string) {
-    obj = obj.inc()
-  }
+  const numeroDigitado = (num: string) => calc = calc.numeroDigitado(num)
+  const operacaoDigitada = (op: string) => calc = calc.operacaoDigitada(op)
+  const calcular = () => calc = calc.calcular()
+  const virgulaDigitada = () => calc = calc.virgulaDigitada()
+  const limpar = () => calc = calc.limpar()
 
 </script>
-
 <div class="calculadora">
-  <Tela valor={obj.valor} />
+  <Tela valor={calc.valor} />
 
-  <Linha>
-    <Botao texto="AC" triplo destaque />
-    <Botao texto="/" operacao />
+  <Linha dois>
+    <Botao texto="AC" triplo destaque onClick={limpar} />
+    <Botao texto="/" operacao onClick={operacaoDigitada} />
   </Linha>
-  <Linha>
+  <Linha quatro>
     <Botao texto="7" botoes onClick={numeroDigitado} />
     <Botao texto="8" botoes onClick={numeroDigitado} />
     <Botao texto="9" botoes onClick={numeroDigitado} />
-    <Botao texto="*" operacao />
+    <Botao texto="*" operacao onClick={operacaoDigitada} />
   </Linha>
-  <Linha>
-    <Botao texto="6" botoes onClick={numeroDigitado} />
-    <Botao texto="5" botoes onClick={numeroDigitado} />
+  <Linha quatro>
     <Botao texto="4" botoes onClick={numeroDigitado} />
-    <Botao texto="+" operacao />
+    <Botao texto="5" botoes onClick={numeroDigitado} />
+    <Botao texto="6" botoes onClick={numeroDigitado} />
+    <Botao texto="+" operacao onClick={operacaoDigitada} />
   </Linha>
-  <Linha>
-    <Botao texto="3" botoes onClick={numeroDigitado} />
-    <Botao texto="2" botoes onClick={numeroDigitado} />
+  <Linha quatro>
     <Botao texto="1" botoes onClick={numeroDigitado} />
-    <Botao texto="-" operacao />
+    <Botao texto="2" botoes onClick={numeroDigitado} />
+    <Botao texto="3" botoes onClick={numeroDigitado} />
+    <Botao texto="-" operacao onClick={operacaoDigitada} />
   </Linha>
-  <Linha>
+  <Linha tres>
     <Botao texto="0" duplo botoes onClick={numeroDigitado} />
-    <Botao texto="," botoes />
-    <Botao texto="=" duplo destaque />
+    <Botao texto="," botoes onClick={virgulaDigitada} />
+    <Botao texto="=" duplo destaque onClick={calcular} />
   </Linha>
 </div>
 
@@ -58,17 +49,14 @@
   .calculadora {
     background: var(--bg-700);
 
-    width: 160px;
-    border-radius: 0.5rem;
+    border-radius: 1rem;
 
     display: flex;
     flex-direction: column;
-    gap: 4px;
+    gap: .5rem;
 
-    padding: 0.5rem;
+    padding: 1.25rem;
 
     box-shadow: 0 0 12px #00000085;
-
-    transform: scale(1.75);
   }
 </style>

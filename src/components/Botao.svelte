@@ -25,15 +25,14 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-basis: 23.5%;
 
     color: #121214;
     border: none;
 
-    border-radius: 0.25rem;
+    border-radius: 0.5rem;
     margin: 0;
 
-    font-size: 1rem;
+    font-size: 2rem;
     font-weight: 600;
     line-height: 156%;
 
@@ -51,14 +50,6 @@
 
   .destaque:hover {
     background: #66BBD1;
-  }
-
-  .duplo {
-    flex-basis: 50%;
-  }
-
-  .triplo {
-    flex-basis: 75%;
   }
 
   .botoes {
