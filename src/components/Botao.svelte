@@ -24,6 +24,7 @@
   .botao {
     display: flex;
     justify-content: center;
+    align-items: center;
     flex-basis: 23.5%;
 
     color: #121214;

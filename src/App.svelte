@@ -10,6 +10,7 @@
 	:global(body) {
 		background: var(--bg-900);
 		overflow: hidden;
+		font-family: Inter, sans-serif;
 	}
 		
 	:root {

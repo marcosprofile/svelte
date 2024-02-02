@@ -3,16 +3,27 @@
   import Linha from "./Linha.svelte";
   import Tela from "./Tela.svelte";
 
-  let valor = '0'
+  class Model {
+    valor: string
+    constructor(valor: string = "0") {
+      this.valor = valor;
+    }
+
+    inc() {
+      return new Model(`${parseInt(this.valor) + 1}`)
+    }
+  }
+
+  let obj = new Model();
 
   function numeroDigitado(numero: string) {
-    valor += numero
+    obj = obj.inc()
   }
 
 </script>
 
 <div class="calculadora">
-  <Tela valor={valor} />
+  <Tela valor={obj.valor} />
 
   <Linha>
     <Botao texto="AC" triplo destaque />
@@ -39,7 +50,7 @@
   <Linha>
     <Botao texto="0" duplo botoes onClick={numeroDigitado} />
     <Botao texto="," botoes />
-    <Botao texto="=" />
+    <Botao texto="=" duplo destaque />
   </Linha>
 </div>
 
